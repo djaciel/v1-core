@@ -42,13 +42,6 @@ jobs:
           echo WEB3_INFURA_PROJECT_ID=${{ secrets.WEB3_INFURA_PROJECT_ID }} >> .env
           echo export ARBISCAN_TOKEN=${{ secrets.ARBISCAN_TOKEN }} >> .env
           cat .env
-      - name: Cache Compiler Installations
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.solcx
-            ~/.vvm
-          key: compiler-cache
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
