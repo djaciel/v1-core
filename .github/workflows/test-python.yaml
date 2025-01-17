@@ -70,8 +70,6 @@ jobs:
         run: brownie compile --size
 
       - name: Configure Arbitrum
-        run: |
-          brownie networks add Development arbitrum-main-fork name="Ganache-CLI (Aribtrum-Mainnet Fork)" host=http://127.0.0.1 cmd=ganache-cli accounts=10 evm_version=istanbul fork=arbitrum-main mnemonic=brownie port=8545
-          brownie networks modify arbitrum-main host="https://arbitrum-mainnet.infura.io/v3/2e80fa8bdd7b4e44bab5a8fb706a8deb" provider=infura
+        run: brownie networks add Development arbitrum-main-fork name="Ganache-CLI (Aribtrum-Mainnet Fork)" host=http://127.0.0.1 cmd=ganache-cli accounts=10 evm_version=istanbul fork=https://arbitrum-mainnet.infura.io/v3/2e80fa8bdd7b4e44bab5a8fb706a8deb mnemonic=brownie port=8545
       - name: Run Tests
         run: brownie test -vv -s --gas
